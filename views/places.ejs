@@ -1,0 +1,20 @@
+<% include ./partials/_header %>
+<h1>Home Page</h1>
+<% places.forEach((place) => { %>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">
+      <%= place.name %>
+    </h5>
+    <p class="card-text">
+      <%= place.description%>
+    </p>
+    <a href="<%= `/places/${place._id}/edit`%>" class="btn btn-primary">Edit</a>
+  </div>
+</div>
+<% }) %>
+
+</div>
+</body>
+
+</html>
