@@ -1,5 +1,17 @@
 <% include ./partials/_header %>
 <h1>Edit Place</h1>
+
+<% if (locals.flashes) { %>
+<% const categories = Object.keys(locals.flashes) %>
+<% categories.forEach(category => { %>
+<% locals.flashes[category].forEach (message => { %>
+<div class="alert alert-<%=category%>" role="alert">
+  <%= message %>
+  <% }) %>
+</div>
+<% }) %>
+<% } %>
+
 <form method="POST" action="/add/<%=`${place._id}`%>">
   <div class="form-group">
     <label for="name">Name</label>

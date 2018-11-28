@@ -1,22 +1,14 @@
 <% include ./partials/_header %>
 
 <h1>Home Page</h1>
-<% if (locals.flashes) { %>
-<% const categories = Object.keys(locals.flashes) %>
-<% categories.forEach(category => { %>
-<% locals.flashes[category].forEach (message => { %>
-<div class="alert alert-<%=category%>" role="alert">
-  <%= message %>
-  <% }) %>
-</div>
-<% }) %>
-<% } %>
 
 <% places.forEach((place) => { %>
 <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">
-      <%=place.name%>
+      <a href="<%=`/places/${place._id}`%>">
+        <%=place.name%>
+      </a>
     </h5>
     <p class="card-text">
       <%=place.description.split(' ').slice(0, 25).join(' ')%>
