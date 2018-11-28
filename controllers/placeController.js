@@ -14,7 +14,7 @@ exports.getPlaces = async (req, res) => {
 
 // GET
 exports.addPlace = (req, res) => {
-  res.render('place_form.ejs')
+  res.render('createPlace.ejs')
 }
 
 // POST

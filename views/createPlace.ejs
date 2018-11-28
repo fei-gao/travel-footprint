@@ -3,7 +3,7 @@
 <form method="POST" action="/add">
   <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" name="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter Place Name">
+    <input type="text" name="name" class="form-control" id="name" placeholder="Enter Place Name">
   </div>
   <div class="form-group">
     <label for="description">Description</label>
@@ -14,6 +14,7 @@
     <% choices.forEach( choice => { %>
     <div class="form-check form-check-inline">
       <input class="form-check-input" type="checkbox" id="<%=choice%>" name="tags" value="<%=choice%>">
+
       <label class="form-check-label" for="<%=choice%>">
         <%=choice%></label>
     </div>
