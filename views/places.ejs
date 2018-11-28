@@ -4,12 +4,12 @@
 <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">
-      <%= place.name %>
+      <%=place.name%>
     </h5>
     <p class="card-text">
-      <%= place.description%>
+      <%=place.description%>
     </p>
-    <a href="<%= `/places/${place._id}/edit`%>" class="btn btn-primary">Edit</a>
+    <a href="<%=`/places/${place._id}/edit`%>" class="btn btn-primary">Edit</a>
   </div>
 </div>
 <% }) %>

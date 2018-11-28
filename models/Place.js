@@ -11,11 +11,11 @@ const placeSchema = new mongoose.Schema({
     type: String,
     trim: true
   },
-  // tags: [String],
-  // created: {
-  //   type: Date,
-  //   default: Date.now
-  // },
+  tags: [String],
+  created: {
+    type: Date,
+    default: Date.now
+  },
   // location: {
   //   type: {
   //     type: String,

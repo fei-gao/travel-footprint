@@ -11,7 +11,7 @@ router.get('/add', placeController.addPlace);
 router.post('/add', catchErrors(placeController.createPlace));
 
 // update a place
-router.post('/add/:id', catchErrors(placeController.updatePlace));
 router.get('/places/:id/edit', catchErrors(placeController.editPlace));
+router.post('/add/:id', catchErrors(placeController.updatePlace));
 
 module.exports = router;
