@@ -20,6 +20,7 @@ exports.addPlace = (req, res) => {
 // POST
 exports.createPlace = async (req, res) => {
   const place = await (new Place(req.body)).save();
+  req.flash('success', `Successfully created ${place.name}. Care to leave a review?`)
   res.redirect('/places');
 }
 
@@ -38,6 +39,8 @@ exports.updatePlace = async (req, res) => {
     new: true, // return the new place instead of the old one
     runValidators: true
   }).exec();
+
+  req.flash('success', `Successfully updated ${place.name}. Thank you!`)
   // redirect them to places home page
   res.redirect("/places");
 }

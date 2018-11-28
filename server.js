@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 const express = require('express');
+const session = require('express-session');
 const bodyParser = require('body-parser');
 const routes = require('./routes/index');
+const flash = require('connect-flash');
 
 const app = express();
 
@@ -19,6 +21,21 @@ mongoose.connect(db, { useNewUrlParser: true })
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
 
+// connect-flash module depends on the express-session module
+app.use(session({
+  cookie: { maxAge: 60000 },
+  secret: 'woot',
+  resave: false,
+  saveUninitialized: false
+}));
+// The flash middleware let's us use req.flash('error', 'Shit!'), which will then pass that message to the next page the user requests
+app.use(flash());
+
+// pass variables to our templates + all requests
+app.use((req, res, next) => {
+  res.locals.flashes = req.flash();
+  next();
+});
 // use routes
 app.use('/', routes);
 

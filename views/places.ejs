@@ -1,5 +1,17 @@
 <% include ./partials/_header %>
+
 <h1>Home Page</h1>
+<% if (locals.flashes) { %>
+<% const categories = Object.keys(locals.flashes) %>
+<% categories.forEach(category => { %>
+<% locals.flashes[category].forEach (message => { %>
+<div class="alert alert-<%=category%>" role="alert">
+  <%= message %>
+  <% }) %>
+</div>
+<% }) %>
+<% } %>
+
 <% places.forEach((place) => { %>
 <div class="card" style="width: 18rem;">
   <div class="card-body">
