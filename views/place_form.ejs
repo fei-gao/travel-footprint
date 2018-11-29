@@ -1,7 +1,7 @@
 <% const onePlace = ( typeof place == 'undefined' )? {} : place %>
-<% console.log(onePlace) %>
+<% const formAction = `/add/${onePlace._id || ''}` %>
 
-<form method="POST" action="/add/<%=`${onePlace._id} || ''`%>">
+<form method="POST" action="<%=formAction%>">
   <div class="form-group">
     <label for="name">Name</label>
     <input type="text" name="name" class="form-control" id="name" value="<%=onePlace.name%>">
