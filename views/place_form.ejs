@@ -28,7 +28,7 @@
     <input type="text" id="lat" name="location.coordinates[1]" class="form-control" value="<%= onePlace.location && onePlace.location.coordinates[1] %>"
       required>
   </div>
-
+  <!-- tags -->
   <div class="form-group form-check">
     <% const choices = ['Wifi', 'Open Late', 'Family Friendly', 'Vegetarian', 'Licensed'] %>
     <% const tags = onePlace.tags || [] %>

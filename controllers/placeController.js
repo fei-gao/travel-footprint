@@ -40,7 +40,7 @@ exports.updatePlace = async (req, res) => {
     runValidators: true
   }).exec();
 
-  req.flash('success', `Successfully updated ${place.name}. Thank you!`)
+  req.flash('success', `Successfully updated ${place.name}. Well done!`)
   // redirect them to places home page
   res.redirect(`/places/${place._id}/edit`);
 }

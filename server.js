@@ -4,6 +4,7 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const routes = require('./routes/index');
 const flash = require('connect-flash');
+const errorHandlers = require('./handlers/errorHandlers');
 
 const app = express();
 
@@ -38,6 +39,9 @@ app.use((req, res, next) => {
 });
 // use routes
 app.use('/', routes);
+
+// one of our error handlers will see if these errors are just validation errors
+app.use(errorHandlers.flashValidationErrors);
 
 const PORT = process.env.PORT || 4001;
 app.listen(PORT, () => {
