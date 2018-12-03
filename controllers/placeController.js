@@ -1,5 +1,20 @@
 const mongoose = require('mongoose');
 const Place = require('../models/Place');
+const multer = require('multer');
+const jimp = require('jimp');
+const uuid = require('uuid');
+
+const multerOptions = {
+  storage: multer.memoryStorage(),
+  fileFilter(req, file, next) {
+    const isPhoto = file.mimetype.startsWith('image/');
+    if (isPhoto) {
+      next(null, true);
+    } else {
+      next({ message: 'That filetype isn\'t allowed!' }, false)
+    }
+  }
+}
 
 exports.homePage = async (req, res) => {
   const places = await Place.find();
@@ -17,6 +32,16 @@ exports.addPlace = (req, res) => {
   res.render('createPlace.ejs')
 }
 
+// let multer handle a single field called photo
+exports.upload = multer(multerOptions).single('photo');
+
+exports.resize = async (req, res, next) => {
+  // check if there is no new file to resize
+  if (!req.file) {
+    next(); // skip to the next middleware
+  }
+  console.log(req.file);
+}
 // POST
 exports.createPlace = async (req, res) => {
   const place = await (new Place(req.body)).save();

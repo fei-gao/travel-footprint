@@ -5,7 +5,7 @@ const placeSchema = new mongoose.Schema({
   name: {
     type: String,
     trim: true,
-    required: 'Please enter a store name!'
+    required: 'Please enter a place name!'
   },
   description: {
     type: String,

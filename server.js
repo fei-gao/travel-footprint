@@ -10,6 +10,8 @@ const app = express();
 
 // Middleware
 app.set('view engine', 'ejs');
+// serves up static files from the public folder. Anything in public/ will just be served up as the file it is
+app.use(express.static('public'));
 // create application/x-www-form-urlencoded parser
 app.use(bodyParser.urlencoded({ extended: true }));
 // create application/json parser
