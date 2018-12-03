@@ -1,6 +1,5 @@
 <% const onePlace = ( typeof place == 'undefined' )? {} : place %>
 <% const formAction = `/add/${onePlace._id || ''}` %>
-<% console.log(onePlace) %>
 <form method="POST" action="<%=formAction%>">
   <div class="form-group">
     <label for="name">Name</label>
@@ -14,7 +13,7 @@
   <!-- -address, lng and lat -->
   <div class="form-group">
     <label for="address">Address</label>
-    <input type="text" id="address" name="location.address" class="form-control" value="<%= onePlace.location && onePlace.location.address %>">
+    <input type="text" id="address" name="location.address" onFocus="geolocate()" class="form-control" value="<%= onePlace.location && onePlace.location.address %>">
   </div>
 
   <div class="form-group">

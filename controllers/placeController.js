@@ -32,8 +32,6 @@ exports.editPlace = async (req, res) => {
 
 // POST
 exports.updatePlace = async (req, res) => {
-  // Set the location data to be a point
-  // req.body.location.type = 'Point';
   // Find and update the place
   const place = await Place.findOneAndUpdate({ _id: req.params.id }, req.body, {
     new: true, // return the new place instead of the old one
