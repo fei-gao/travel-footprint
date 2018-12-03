@@ -1,0 +1,8 @@
+.card-gutter {
+  padding-bottom: 1em;
+}
+
+.img-cropped {
+  height: 250px;
+  object-fit: cover;
+}

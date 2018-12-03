@@ -29,7 +29,8 @@ const placeSchema = new mongoose.Schema({
       type: String,
       required: 'You must supply an address!'
     }
-  }
+  },
+  photo: String
 });
 
 // placeSchema.pre('save', function (next) {

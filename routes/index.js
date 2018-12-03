@@ -16,6 +16,10 @@ router.post('/add',
 
 // update a place
 router.get('/places/:id/edit', catchErrors(placeController.editPlace));
-router.post('/add/:id', catchErrors(placeController.updatePlace));
+router.post('/add/:id',
+  placeController.upload,
+  catchErrors(placeController.resize),
+  catchErrors(placeController.updatePlace)
+);
 
 module.exports = router;

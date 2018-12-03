@@ -34,13 +34,21 @@ exports.addPlace = (req, res) => {
 
 // let multer handle a single field called photo
 exports.upload = multer(multerOptions).single('photo');
-
+// save the resized photo to uploads folder
 exports.resize = async (req, res, next) => {
   // check if there is no new file to resize
   if (!req.file) {
     next(); // skip to the next middleware
+    return;
   }
-  console.log(req.file);
+  const extension = req.file.mimetype.split('/')[1];
+  req.body.photo = `${uuid.v4()}.${extension}`;
+  // now we resize
+  const photo = await jimp.read(req.file.buffer);
+  await photo.resize(800, jimp.AUTO);
+  await photo.write(`./public/uploads/${req.body.photo}`);
+  // once we have written the photo to our filesystem, keep going!
+  next();
 }
 // POST
 exports.createPlace = async (req, res) => {
