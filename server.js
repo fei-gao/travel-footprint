@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const routes = require('./routes/index');
 const flash = require('connect-flash');
 const errorHandlers = require('./handlers/errorHandlers');
-
+const helpers = require('./helpers');
 const app = express();
 
 // Middleware
@@ -37,6 +37,7 @@ app.use(flash());
 // pass variables to our templates + all requests
 app.use((req, res, next) => {
   res.locals.flashes = req.flash();
+  res.locals.helpers = helpers;
   next();
 });
 // use routes

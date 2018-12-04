@@ -37,7 +37,7 @@ exports.getPlaceById = async (req, res, next) => {
   if (!place) { // place is null if cannot find that id from db
     return next();
   }
-  res.render('readPlace', { place, title: place.name });
+  res.render('showPlace', { place, title: place.name });
 }
 
 // GET

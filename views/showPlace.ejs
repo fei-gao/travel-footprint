@@ -1,0 +1,33 @@
+<% include ./partials/_header %>
+<h1>Read Place</h1>
+
+<div class="jumbotron jumbotron-fluid">
+  <img class="card-img-top img-cropped" src="<%=`/uploads/${place.photo || 'place.png' }`%>" alt="Card image here">
+  <div class="container">
+    <h1 class="display-4">
+      <%=place.name%>
+    </h1>
+    <p class="lead">
+      <%=place.description%>
+    </p>
+    <% if(place.tags){ %>
+    <% place.tags.forEach(tag => { %>
+    <div class="form-check-inline">
+      <a href="/tags/<%=tag%>">
+        <label>
+          <%=tag%>
+        </label>
+      </a>
+    </div>
+    <% })%>
+    <% } %>
+    <div>
+      <a href="<%=`/places/${place._id}/edit`%>" class="btn btn-primary">Edit</a>
+    </div>
+    <% const mapSrc=locals.helpers.staticMap(place.location.coordinates) %>
+    <img src="<%=mapSrc%>" class="static-map-cropped" alt="static-map">
+  </div>
+</div>
+</body>
+
+</html>
