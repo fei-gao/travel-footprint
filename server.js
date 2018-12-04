@@ -42,8 +42,14 @@ app.use((req, res, next) => {
 // use routes
 app.use('/', routes);
 
+// if that above routes didn't work, we 404 them and forward to error handler
+app.use(errorHandlers.notFound);
+
 // one of our error handlers will see if these errors are just validation errors
 app.use(errorHandlers.flashValidationErrors);
+
+/* Development Error Handler - Prints stack trace */
+app.use(errorHandlers.developmentErrors);
 
 const PORT = process.env.PORT || 4001;
 app.listen(PORT, () => {

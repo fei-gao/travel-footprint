@@ -1,0 +1,19 @@
+<% include ./partials/_header %>
+<h1>Read Place</h1>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <img class="card-img-top img-cropped" src="<%=`/uploads/${place.photo || 'place.png' }`%>" alt="Card image here">
+    <h1 class="display-4">
+      <%=place.name%>
+    </h1>
+    <p class="lead">
+      <%=place.description%>
+    </p>
+    <a href="<%=`/places/${place._id}/edit`%>" class="btn btn-primary">Edit</a>
+  </div>
+</div>
+
+</body>
+
+</html>

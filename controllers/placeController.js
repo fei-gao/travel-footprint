@@ -27,6 +27,19 @@ exports.getPlaces = async (req, res) => {
   res.render('places', { title: 'Places', places });
 }
 
+// GET single place
+exports.getPlaceById = async (req, res, next) => {
+  const id = req.params.id;
+  if (!id.match(/^[0-9a-fA-F]{24}$/)) { // see if id is a valid ObjectId or not
+    return next();
+  }
+  const place = await Place.findById(id);
+  if (!place) { // place is null if cannot find that id from db
+    return next();
+  }
+  res.render('readPlace', { place, title: place.name });
+}
+
 // GET
 exports.addPlace = (req, res) => {
   res.render('createPlace.ejs')
@@ -58,8 +71,14 @@ exports.createPlace = async (req, res) => {
 }
 
 // GET
-exports.editPlace = async (req, res) => {
-  const place = await Place.findOne({ _id: req.params.id });
+exports.editPlace = async (req, res, next) => {
+  const id = req.params.id;
+  if (!id.match(/^[0-9a-fA-F]{24}$/)) { // see if id is a valid ObjectId or not
+    return next();
+  } const place = await Place.findById(id);
+  if (!place) { // place is null if cannot find that id from db
+    return next();
+  }
   res.render('editPlace', { title: `Edit ${place.name}`, place });
 }
 
@@ -71,7 +90,7 @@ exports.updatePlace = async (req, res) => {
     runValidators: true
   }).exec();
 
-  req.flash('success', `Successfully updated ${place.name}. Well done!`)
+  req.flash('success', `Successfully updated ${place.name}. Well done!`);
   // redirect them to places home page
   res.redirect(`/places/${place._id}/edit`);
 }
