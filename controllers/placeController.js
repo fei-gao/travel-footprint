@@ -94,3 +94,9 @@ exports.updatePlace = async (req, res) => {
   // redirect them to places home page
   res.redirect(`/places/${place._id}/edit`);
 }
+
+exports.getPlacesByTag = async (req, res) => {
+  const tags = await Place.getTagsList();
+  const selectedTag = req.params.tag;
+  res.render('tag', { tags, selectedTag, title: 'Tags' });
+}

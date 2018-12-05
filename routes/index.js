@@ -23,4 +23,7 @@ router.post('/add/:id',
   catchErrors(placeController.updatePlace)
 );
 
+router.get('/tags', catchErrors(placeController.getPlacesByTag));
+router.get('/tags/:tag', catchErrors(placeController.getPlacesByTag));
+
 module.exports = router;

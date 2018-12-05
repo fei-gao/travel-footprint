@@ -14,3 +14,5 @@
 (https://stackoverflow.com/questions/2623603/crop-an-image-instead-of-stretching-it)
 5. MongoDB castError: Cast to ObjectId failed for value at path "_id"      [https://stackoverflow.com/questions/14940660/whats-mongoose-error-cast-to-objectid-failed-for-value-xxx-at-path-id](https://stackoverflow.com/questions/14940660/whats-mongoose-error-cast-to-objectid-failed-for-value-xxx-at-path-id)
 6. Secure API key in res.locals.helpers [https://stackoverflow.com/questions/33451053/req-locals-vs-res-locals-vs-res-data-vs-req-data-vs-app-locals-in-express-mi](https://stackoverflow.com/questions/33451053/req-locals-vs-res-locals-vs-res-data-vs-req-data-vs-app-locals-in-express-mi)
+7. MongoDB aggregation [https://docs.mongodb.com/manual/aggregation/#aggregation-framework](https://docs.mongodb.com/manual/aggregation/#aggregation-framework)
+[https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline/](https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline/)

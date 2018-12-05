@@ -40,4 +40,15 @@ const placeSchema = new mongoose.Schema({
 //   }
 //   next();
 // })
+
+placeSchema.statics.getTagsList = function () {
+  return this.aggregate([
+    // make each tag corresponding to one place
+    { $unwind: '$tags' },
+    // each time we group one place based on tag field, add by 1
+    { $group: { _id: '$tags', count: { $sum: 1 } } },
+    // sort tags in descending order
+    { $sort: { count: -1 } }
+  ]);
+}
 module.exports = mongoose.model('Place', placeSchema);
