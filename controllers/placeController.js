@@ -96,7 +96,11 @@ exports.updatePlace = async (req, res) => {
 }
 
 exports.getPlacesByTag = async (req, res) => {
-  const tags = await Place.getTagsList();
   const selectedTag = req.params.tag;
-  res.render('tag', { tags, selectedTag, title: 'Tags' });
+  // gives all places with tags included if user not select any tag
+  const tagQuery = selectedTag || { $exists: true };
+  const tagsPromise = Place.getTagsList();
+  const placesPromise = Place.find({ tags: tagQuery });
+  const [tags, places] = await Promise.all([tagsPromise, placesPromise]);
+  res.render('tag', { tags, places, selectedTag, title: 'Tags' });
 }

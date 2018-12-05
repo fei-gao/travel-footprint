@@ -4,6 +4,7 @@
 3. geolocation - move autocomplete() function to a separate file
 4. create ejs for /place/:id page
 5. Need error handler when retrieving non-existing id from database on both ```/places/:id``` and ```/places/:id/edit``` page
+6. Make place card a separate component
 
 # References
 1. Autocomplete address [https://www.youtube.com/watch?v=9Qzmri1WaaE](https://www.youtube.com/watch?v=9Qzmri1WaaE)
