@@ -1,10 +1,12 @@
 <% const onePlace = ( typeof place == 'undefined' )? {} : place %>
 <% const formAction = `/add/${onePlace._id || ''}` %>
 <form method="POST" action="<%=formAction%>" enctype="multipart/form-data">
+  <!-- name -->
   <div class="form-group">
     <label for="name">Name</label>
     <input type="text" name="name" class="form-control" id="name" value="<%=onePlace.name%>">
   </div>
+  <!-- description -->
   <div class="form-group">
     <label for="description">Description</label>
     <textarea name="description" class="form-control" id="description"><%=onePlace.description%>  
@@ -18,7 +20,6 @@
     <img src="<%=`/uploads/${onePlace.photo}`%>" , alt="<%=onePlace.name%>" width=200>
     <% } %>
   </div>
-
   <!-- -address, lng and lat -->
   <div class="form-group">
     <label for="address">Address</label>
@@ -44,7 +45,6 @@
     <div class="form-check form-check-inline">
       <input class="form-check-input" type="checkbox" id="<%=choice%>" name="tags" value="<%=choice%>" <%=tags.includes(choice)
         ? "checked" : "" %> >
-
       <label class="form-check-label" for="<%=choice%>">
         <%=choice%></label>
     </div>

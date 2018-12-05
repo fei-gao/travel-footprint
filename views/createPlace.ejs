@@ -1,19 +1,11 @@
-<% include ./partials/_header %>
+<% include ./partials/_head %>
+<title> Add Place</title>
+<% include ./partials/_navbar %>
 
 <h1>Add Place</h1>
 <!-- render flash message -->
-<% if (locals.flashes) { %>
-<% const categories = Object.keys(locals.flashes) %>
-<% categories.forEach(category => { %>
-<% locals.flashes[category].forEach (message => { %>
-<div class="alert alert-<%=category%>" role="alert">
-  <%= message %>
-  <button type="button" class="close" data-dismiss="alert">×</button>
-  <% }) %>
-</div>
-<% }) %>
-<% } %>
-<% include ./place_form %>
+<% include ./partials/_flashMessage %>
+<% include ./partials/_placeForm %>
 
 </body>
 

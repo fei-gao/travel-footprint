@@ -1,6 +1,11 @@
-<% include ./partials/_header %>
-<h1>Read Place</h1>
+<% include ./partials/_head %>
+<title>
+  <%=title%>
+</title>
+<% include ./partials/_navbar %>
 
+<h1>Show Place</h1>
+<!-- display single place -->
 <div class="jumbotron jumbotron-fluid">
   <img class="card-img-top img-cropped" src="<%=`/uploads/${place.photo || 'place.png' }`%>" alt="Card image here">
   <div class="container">

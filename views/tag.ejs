@@ -1,41 +1,26 @@
-<% include ./partials/_header %>
+<% include ./partials/_head %>
+<title>
+  <%=title%>
+</title>
+<% include ./partials/_navbar %>
+
 <h1>
   <%=selectedTag || 'Tags'%>
 </h1>
+<!-- render tag buttons -->
 <% tags.forEach(tag => { %>
-<div class="form-check-inline">
-  <% const linkClass = (tag._id == selectedTag)?'badge badge-warning': 'badge badge-primary'%>
-  <a href="/tags/<%=tag._id%>" class="<%=linkClass%>">
-    <label>
-      <%=tag._id%>
+<% const btnClass = (tag._id == selectedTag)?'btn btn-info': 'btn btn-secondary'%>
+<a href="/tags/<%=tag._id%>">
+  <button type="button" class="<%=btnClass%>">
+    <%=tag._id%>
+    <span class="badge badge-light">
       <%=tag.count%>
-    </label>
-  </a>
-</div>
+    </span>
+  </button>
+</a>
 <% })%>
 
-<div class="row">
-  <% places.forEach((place) => { %>
-  <div class="col-sm-12 col-md-6 col-lg-4 card-gutter">
-    <div class="card">
-      <% const imgSrc = `/uploads/${place.photo || 'place.png' }`%>
-      <img class="card-img-top img-cropped" src="<%=imgSrc%>" alt="Card image here">
-      <div class="card-body">
-        <h5 class="card-title">
-          <a href="<%=`/places/${place._id}`%>">
-            <%=place.name%>
-          </a>
-        </h5>
-        <p class="card-text">
-          <%=place.description.split(' ').slice(0, 25).join(' ')%>
-        </p>
-        <a href="<%=`/places/${place._id}/edit`%>" class="btn btn-primary">Edit</a>
-      </div>
-    </div>
-  </div>
-  <% }) %>
-</div>
-</div>
+<%include ./partials/_placeCard %>
 </body>
 
 </html>
