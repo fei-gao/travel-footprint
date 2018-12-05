@@ -72,6 +72,15 @@
       }
     }
   </script>
+
+  <script>
+    $(document).ready(function () {
+      $("nav li a").click(function () {
+        $(this).addClass("active");
+        $(this).siblings().removeClass("active");
+      })
+    });
+  </script>
   <!-- Google Maps JavsScript API key -->
   <script src="https://maps.googleapis.com/maps/api/js?key=<%=locals.helpers.getMapKey%>&libraries=places&callback=initAutocomplete"
     async defer></script>
