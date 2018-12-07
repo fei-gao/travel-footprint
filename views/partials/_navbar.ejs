@@ -3,17 +3,28 @@
 <body>
   <!-- sticky navbar -->
   <nav class="navbar sticky-top navbar-dark bg-dark">
-    <ul class="nav nav-tabs">
-      <li class="nav-item"><a class="nav-link navbar-brand" href="/">HOME PAGE</a></li>
-      <li class="nav-item"><a class="nav-link navbar-brand" href="/tags">TAGS</a></li>
-      <li class="nav-item"><a class="nav-link navbar-brand" href="/add">ADD PLACE</a></li>
-      <% if(user) { %>
-      <li><a href="/account"><img src="<%=user.gravatar%>" class="avatar"></a></li>
-      <li class="nav-item"><a class="nav-link navbar-brand" href="/logout">Log Out</a></li>
-      <% } else { %>
-      <li class="nav-item"><a class="nav-link navbar-brand" href="/register">Register</a></li>
-      <li class="nav-item"><a class="nav-link navbar-brand" href="/login">Log In</a></li>
-      <% } %>
-    </ul>
+    <div class="navbar-left">
+      <ul class="nav nav-tabs">
+        <a class="nav-link navbar-brand" href="/">TRAVEL F<i class="fas fa-shoe-prints fa-rotate-90"></i>TPRINT</a>
+        <li class="nav-item"><a class="nav-link navbar-brand" href="/"><i class="fas fa-map-marker-alt"></i> PLACES</a></li>
+        <li class="nav-item"><a class="nav-link navbar-brand" href="/tags"><i class="fas fa-tags"></i> TAGS</a></li>
+        <li class="nav-item"><a class="nav-link navbar-brand" href="/add"><i class="far fa-plus-square"></i> ADD PLACE</a></li>
+      </ul>
+    </div>
+    <div class="navbar-right">
+      <ul class="nav nav-tabs">
+        <% if(user) { %>
+        <li><a href="/account"><img src="<%=user.gravatar%>" class="avatar"></a></li>
+        <li class="nav-item "><a class="nav-link navbar-brand" href="/logout"><i class="fas fa-sign-out-alt"></i>
+            LOG
+            OUT</a></li>
+        <% } else { %>
+        <li class="nav-item"><a class="nav-link navbar-brand" href="/register"><i class="far fa-registered"></i>
+            REGISTER</a></li>
+        <li class="nav-item"><a class="nav-link navbar-brand" href="/login"><i class="fas fa-sign-in-alt"></i>
+            LOG IN</a></li>
+        <% } %>
+      </ul>
+    </div>
   </nav>
   <div class="container">

@@ -6,16 +6,44 @@
 5. Need error handler when retrieving non-existing id from database on both ```/places/:id``` and ```/places/:id/edit``` page
 6. Make place card a separate component
 7. Add active class when clicking nav tab
+8. Delete place
+
+# Setup
+- Clone the repo
+- Run ```npm install``` to install the dependencies
+- Create a ```./config/keys``` file in the root directory, and include the following:
+  ```
+  DATABASE: 'mongodb://localhost:27017/travel-footprint',
+  mapKey: 'Your Google Map API Key'
+  ```
+- Run ```npm run server``` to start Express Server
+- App will then be accessible at localhost:4001
 
 # Dependencies
-### User Authentication
+
+### 1. User Authentication
 - md5
 - validator
 - mongoose-mongodb-errors
+- passport
 - passport-local-mongoose
 - express-validator
 - es6-promisify (downgrade to 5.0.0)
-- passport
+
+### 2. Flash Message
+- connect-flash
+- express-session
+
+### 3. Image Upload
+- multer
+- jimp
+- uuid
+
+### 4. Express
+- body-parser
+- dotenv
+- ejs
+- express
 
 # References
 1. Autocomplete address [https://www.youtube.com/watch?v=9Qzmri1WaaE](https://www.youtube.com/watch?v=9Qzmri1WaaE)

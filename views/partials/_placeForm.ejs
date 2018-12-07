@@ -39,13 +39,13 @@
   </div>
   <!-- tags -->
   <div class="form-group form-check">
-    <% const choices = ['Wifi', 'Open Late', 'Family Friendly', 'Vegetarian', 'Licensed'] %>
+    <% const choices = ['Natural', 'Cultural', 'Family Friendly', 'Wifi', 'Restaurant'] %>
     <% const tags = onePlace.tags || [] %>
     <% choices.forEach( choice => { %>
     <div class="form-check form-check-inline">
       <input class="form-check-input" type="checkbox" id="<%=choice%>" name="tags" value="<%=choice%>" <%=tags.includes(choice)
         ? "checked" : "" %> >
-      <label class="form-check-label" for="<%=choice%>">
+      <label class="form-check-label btn btn-warning" for="<%=choice%>">
         <%=choice%></label>
     </div>
     <% }) %>

@@ -9,7 +9,7 @@
 </h1>
 <!-- render tag buttons -->
 <% tags.forEach(tag => { %>
-<% const btnClass = (tag._id == selectedTag)?'btn btn-info': 'btn btn-secondary'%>
+<% const btnClass = (tag._id == selectedTag)?'btn btn-info': 'btn btn-warning'%>
 <a href="/tags/<%=tag._id%>">
   <button type="button" class="<%=btnClass%>">
     <%=tag._id%>

@@ -19,9 +19,9 @@
     <% place.tags.forEach(tag => { %>
     <div class="form-check-inline">
       <a href="/tags/<%=tag%>">
-        <label>
+        <button type="button" class="btn btn-warning">
           <%=tag%>
-        </label>
+        </button>
       </a>
     </div>
     <% })%>
