@@ -1,0 +1,27 @@
+<% include ./partials/_head %>
+<title>
+  <%=title%>
+</title>
+<% include ./partials/_navbar %>
+<!-- render flash message -->
+<% include ./partials/_flashMessage %>
+<h1>Reset My Password</h1>
+<form method="POST">
+  <!-- password -->
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input name="password" class="form-control" id="password">
+    </input>
+  </div>
+
+  <!-- password-confirm -->
+  <div class="form-group">
+    <label for="password-confirm">Confirm Password</label>
+    <input name="password-confirm" class="form-control" id="password-confirm">
+    </input>
+  </div>
+  <button type="submit" class="btn btn-primary">Reset Password</button>
+</form>
+</body>
+
+</html>
