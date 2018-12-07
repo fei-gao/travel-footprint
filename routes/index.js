@@ -10,7 +10,9 @@ router.get('/places', catchErrors(placeController.getPlaces));
 // show single place
 router.get('/places/:id', catchErrors(placeController.getPlaceById));
 // create a new place
-router.get('/add', placeController.addPlace);
+router.get('/add',
+  authController.isLoggedIn,
+  placeController.addPlace);
 router.post('/add',
   placeController.upload,
   catchErrors(placeController.resize),
@@ -29,6 +31,8 @@ router.get('/tags', catchErrors(placeController.getPlacesByTag));
 router.get('/tags/:tag', catchErrors(placeController.getPlacesByTag));
 
 router.get('/login', userController.loginForm);
+router.post('/login', authController.login);
+
 router.get('/register', userController.registerForm);
 
 // 1. validate the registration data
@@ -40,4 +44,5 @@ router.post('/register',
   authController.login
 );
 
+router.get('/logout', authController.logout);
 module.exports = router;
