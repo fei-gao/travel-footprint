@@ -1,0 +1,25 @@
+<% include ./partials/_head %>
+<title>
+  <%=title%>
+</title>
+<% include ./partials/_navbar %>
+<!-- render flash message -->
+<% include ./partials/_flashMessage %>
+<h1>Log In</h1>
+<form method="POST" action="/login">
+  <!-- email -->
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" name="email" class="form-control" id="email">
+  </div>
+  <!-- password -->
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input name="password" class="form-control" id="password">
+    </input>
+  </div>
+  <button type="submit" class="btn btn-primary">Log In</button>
+</form>
+</body>
+
+</html>

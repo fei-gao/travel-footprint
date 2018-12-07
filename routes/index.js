@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const placeController = require('../controllers/placeController');
+const userController = require('../controllers/userController');
 const { catchErrors } = require('../handlers/errorHandlers');
 
 router.get('/', catchErrors(placeController.homePage));
@@ -25,5 +26,13 @@ router.post('/add/:id',
 
 router.get('/tags', catchErrors(placeController.getPlacesByTag));
 router.get('/tags/:tag', catchErrors(placeController.getPlacesByTag));
+
+router.get('/login', userController.loginForm);
+router.get('/register', userController.registerForm);
+
+// 1. validate the registration data
+// 2. register the user
+// 3. we need log them in
+router.post('/register', userController.validateRegister);
 
 module.exports = router;

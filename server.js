@@ -4,6 +4,7 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const routes = require('./routes/index');
 const flash = require('connect-flash');
+const expressValidator = require('express-validator');
 const errorHandlers = require('./handlers/errorHandlers');
 const helpers = require('./helpers');
 const app = express();
@@ -16,6 +17,9 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 // create application/json parser
 app.use(bodyParser.json());
+
+// Apply a bunch of validation methods to every single request. Used heavily on userController.validateRegister
+app.use(expressValidator());
 
 // db config
 const db = require('./config/keys').DATABASE;

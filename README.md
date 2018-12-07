@@ -21,3 +21,5 @@
 8. Toggle active class in nav bar in jquery[https://stackoverflow.com/questions/6459581/toggle-active-class-in-nav-bar-with-jquery](https://stackoverflow.com/questions/6459581/toggle-active-class-in-nav-bar-with-jquery)
 [https://stackoverflow.com/questions/35539434/active-navbar-item-not-staying-active-after-click]
 (https://stackoverflow.com/questions/35539434/active-navbar-item-not-staying-active-after-click)
+9. mongoose-mongodb-errors package [https://www.npmjs.com/package/mongoose-mongodb-errors](https://www.npmjs.com/package/mongoose-mongodb-errors)
+10. express-validator package [https://express-validator.github.io/docs/sanitization.html](https://express-validator.github.io/docs/sanitization.html)
