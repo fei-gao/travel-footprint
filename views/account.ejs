@@ -1,0 +1,26 @@
+<% include ./partials/_head %>
+<title>
+  <%=title%>
+</title>
+<% include ./partials/_navbar %>
+<!-- render flash message -->
+<% include ./partials/_flashMessage %>
+<h1>Edit Your Account</h1>
+<form method="POST" action="/account">
+  <!-- name -->
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="name" name="name" class="form-control" id="name">
+  </div>
+  <!-- email -->
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input name="email" class="form-control" id="email">
+    </input>
+  </div>
+  <button type="submit" class="btn btn-primary">Edit Account</button>
+</form>
+
+</body>
+
+</html>
