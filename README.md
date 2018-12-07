@@ -7,6 +7,16 @@
 6. Make place card a separate component
 7. Add active class when clicking nav tab
 
+# Dependencies
+### User Authentication
+- md5
+- validator
+- mongoose-mongodb-errors
+- passport-local-mongoose
+- express-validator
+- es6-promisify (downgrade to 5.0.0)
+- passport
+
 # References
 1. Autocomplete address [https://www.youtube.com/watch?v=9Qzmri1WaaE](https://www.youtube.com/watch?v=9Qzmri1WaaE)
 2. Autocomplete search-box  [https://www.codexworld.com/autocomplete-location-search-box-google-maps-javascript-api-jquery-ui/]

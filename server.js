@@ -2,11 +2,15 @@ const mongoose = require('mongoose');
 const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
+const passport = require('passport');
 const routes = require('./routes/index');
 const flash = require('connect-flash');
 const expressValidator = require('express-validator');
 const errorHandlers = require('./handlers/errorHandlers');
 const helpers = require('./helpers');
+require('./handlers/passport');
+
+// create our express app
 const app = express();
 
 // Middleware
@@ -35,6 +39,11 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
+
+// Passport JS is what we use to handle our logins
+app.use(passport.initialize());
+app.use(passport.session());
+
 // The flash middleware let's us use req.flash('error', 'Shit!'), which will then pass that message to the next page the user requests
 app.use(flash());
 
