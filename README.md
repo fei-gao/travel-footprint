@@ -8,6 +8,14 @@
 7. Add active class when clicking nav tab
 8. Delete place
 
+# Screenshots
+![Screenshot of create-lake-louise](https://github.com/fei-gao/travel-footprint/blob/master/docs/create-lake-louise.png)
+![Screenshot of show-lake-louise](https://github.com/fei-gao/travel-footprint/blob/master/docs/show-lake-louise.png)
+![Screenshot of places](https://github.com/fei-gao/travel-footprint/blob/master/docs/places.png)
+![Screenshot of natural-tag](https://github.com/fei-gao/travel-footprint/blob/master/docs/natural-tag.png)
+![Screenshot of restaurant](https://github.com/fei-gao/travel-footprint/blob/master/docs/restaurant.png)
+![Screenshot of log in](https://github.com/fei-gao/travel-footprint/blob/master/docs/log-in.png)
+
 # Setup
 - Clone the repo
 - Run ```npm install``` to install the dependencies
