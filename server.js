@@ -26,8 +26,10 @@ app.use(bodyParser.json());
 // Apply a bunch of validation methods to every single request. Used heavily on userController.validateRegister
 app.use(expressValidator());
 
+// import environmental variables from our variables.env file
+require('dotenv').config({ path: 'variables.env' });
 // db config
-const db = require('./config/keys').DATABASE;
+const db = process.env.DATABASE;
 // connect to mongodb
 mongoose.connect(db, { useNewUrlParser: true })
   .then(() => console.log('MongoDB connected'))

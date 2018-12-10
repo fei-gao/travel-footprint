@@ -1,3 +1,5 @@
+# In Progress
+
 # Focus 
 1. implement flash message
 2. save tags to mongoDB
@@ -19,10 +21,10 @@
 # Setup
 - Clone the repo
 - Run ```npm install``` to install the dependencies
-- Create a ```./config/keys``` file in the root directory, and include the following:
+- Create a ```./variables.env``` file in the root directory, and include the following:
   ```
-  DATABASE: 'mongodb://localhost:27017/travel-footprint',
-  mapKey: 'Your Google Map API Key'
+  DATABASE=mongodb://localhost:27017/travel-footprint
+  mapKey=Your Google Map API Key
   ```
 - Run ```npm run server``` to start Express Server
 - App will then be accessible at localhost:4001
