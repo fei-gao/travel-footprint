@@ -33,7 +33,7 @@ exports.getPlaceById = async (req, res, next) => {
   if (!id.match(/^[0-9a-fA-F]{24}$/)) { // see if id is a valid ObjectId or not
     return next();
   }
-  const place = await Place.findById(id);
+  const place = await Place.findById(id).populate('author');
   if (!place) { // place is null if cannot find that id from db
     return next();
   }
@@ -65,13 +65,20 @@ exports.resize = async (req, res, next) => {
 }
 // POST
 exports.createPlace = async (req, res) => {
+  req.body.author = req.user._id;
   const place = await (new Place(req.body)).save();
   req.flash('success', `Successfully created ${place.name}. Care to leave a review?`)
   res.redirect(`/places/${place._id}/edit`);
 }
 
+const confirmOwner = (place, user) => {
+  if (!place.author.equals(user._id)) {
+    throw Error('You are not author of this post. Wanna create your own?')
+  }
+}
 // GET
 exports.editPlace = async (req, res, next) => {
+  // 1. Find the place given the ID
   const id = req.params.id;
   if (!id.match(/^[0-9a-fA-F]{24}$/)) { // see if id is a valid ObjectId or not
     return next();
@@ -79,6 +86,9 @@ exports.editPlace = async (req, res, next) => {
   if (!place) { // place is null if cannot find that id from db
     return next();
   }
+  // 2. confirm they are the owner of the place
+  confirmOwner(place, req.user);
+  // 3. Render out the edit form so the user can update their place
   res.render('editPlace', { title: `Edit ${place.name}`, place });
 }
 
